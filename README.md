@@ -19,7 +19,8 @@ Basic ansible, no further dependencies or requirements are needed.
 | `pg_data_dir` | '/srv/postgresql' | Location of the data |
 | `pg_mem_limit` | '512M' | If defined, limit the container to this amount of memory |
 | `pg_auth_method` | 'ident' | Default auth method for postgresql |
-| `pg_default_password` | '' | Default root password for postgresql |
+| `pg_default_password` | '' | Default superuser password for postgresql |
+| `pg_default_user` | '' | Default superuser |
 
 ## Example Playbook
 

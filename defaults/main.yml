@@ -13,3 +13,4 @@ pg_mem_limit: '512M'
 
 pg_auth_method: 'ident'
 pg_default_password: ''
+pg_default_user: ''
