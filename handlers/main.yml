@@ -1,0 +1,7 @@
+---
+# handlers file for podman-postgresql
+
+- name: restart postgresql
+  systemd:
+    name: "{{pg_service_name}}"
+    state: restarted

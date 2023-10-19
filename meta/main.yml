@@ -1,0 +1,27 @@
+galaxy_info:
+  author: phoenix
+  description: Deploy postgresql as podman systemd service
+  company: SUSE LLC
+
+  issue_tracker_url: https://github.com/GeekOops/podman-postgresql/issues
+
+  license: MIT
+
+  min_ansible_version: 2.1
+
+  # TODO: If this a Container Enabled role, provide the minimum Ansible Container version.
+  # min_ansible_container_version:
+
+  platforms:
+    - name: opensuse
+      versions:
+        - tumbleweed
+        - microos
+        - 5.5
+        - 5.4
+        - 15.5
+        - 15.4
+
+  galaxy_tags: ['postgresql']
+
+dependencies: []

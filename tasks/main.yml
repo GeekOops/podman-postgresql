@@ -1,0 +1,40 @@
+---
+# tasks file for podman-postgresql
+
+- name: Ensure data directory exists
+  file:
+    state: directory
+    path: "{{pg_data_dir}}/data"
+    owner: 999
+    group: root
+    mode: 750
+
+- name: Ensure psql_history file exists
+  copy:
+    content: ""
+    dest: "{{pg_data_dir}}/.psql_history"
+    owner: 999
+    group: root
+    mode: 640
+
+- name: Ensure systemd unit is up-to-date
+  template:
+    src: service.j2
+    dest: '/etc/systemd/system/postgresql.service'
+    owner: root
+    group: root
+    mode: 0644
+    force: true
+  register: systemd_unit_file
+
+- name: Reload systemd-daemon
+  ansible.builtin.systemd:
+    daemon_reload: true
+  when: systemd_unit_file.changed
+
+- name: Ensure systemd unit is enabled and stared
+  systemd:
+    name: 'postgresql.service'
+    state: started
+    enabled: true
+  notify: restart postgresql
