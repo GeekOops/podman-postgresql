@@ -34,6 +34,9 @@ ExecStart=/usr/bin/podman run -d \
 {% endif %}
 	--read-only --tmpfs=/run --tmpfs=/tmp \
 	-e POSTGRES_HOST_AUTH_METHOD={{ pg_auth_method }} \
+{% if pg_default_user != "" %}
+	-e POSTGRES_USER={{pg_default_user}} \
+{% endif %}
 {% if pg_default_password != "" %}
 	-e POSTGRES_PASSWORD={{ pg_default_password }} \
 {% endif %}
