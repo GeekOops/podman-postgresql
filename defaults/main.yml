@@ -9,7 +9,7 @@ pg_container_network: 'podman'
 pg_container_ip: ''
 
 pg_data_dir: '/srv/postgresql'
-pg_mem_limit: '512M'
+pg_mem_limit: ''
 
 pg_auth_method: 'ident'
 pg_default_password: ''
